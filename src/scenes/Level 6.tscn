@@ -1,0 +1,192 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/assets/Tiles/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/Sadis.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scenes/Coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scenes/Teleporter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/scenes/InvisibleWall.tscn" type="PackedScene" id=6]
+
+[node name="Level 6" type="Node"]
+
+[node name="block" type="TileMap" parent="."]
+scale = Vector2( 0.1, 0.1 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 500, 500 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 54, 0, 0, 55, 0, 0, 56, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 88, 0, 0, 89, 0, 0, 90, 0, 0, 91, 0, 0, 92, 0, 0, 93, 0, 0, 94, 0, 0, 95, 0, 0, 96, 0, 0, 97, 0, 0, 98, 0, 0, 99, 0, 0, 100, 0, 0, 101, 0, 0, 102, 0, 0, 65638, 0, 0, 131174, 0, 0, 196649, 0, 0, 196652, 0, 0, 196655, 0, 0, 196658, 0, 0, 196661, 0, 0, 196686, 0, 0, 196688, 0, 0, 196690, 0, 0, 196692, 0, 0, 196710, 0, 0, 262182, 0, 0, 262246, 0, 0, 327692, 0, 0, 327701, 0, 0, 327715, 0, 0, 327736, 0, 0, 327756, 0, 0, 327782, 0, 0, 393224, 0, 0, 393231, 0, 0, 393234, 0, 0, 393277, 0, 0, 393281, 0, 0, 393285, 0, 0, 393289, 0, 0, 393302, 0, 0, 393306, 0, 0, 393310, 0, 0, 393314, 0, 0, 393315, 0, 0, 393316, 0, 0, 393317, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458776, 0, 0, 458780, 0, 0, 458784, 0, 0, 458850, 0, 0, 458851, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524379, 0, 0, 524386, 0, 0, 524387, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589922, 0, 0, 589923, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 0, 0, 655403, 0, 0, 655404, 0, 0, 655405, 0, 0, 655406, 0, 0, 655407, 0, 0, 655408, 0, 0, 655409, 0, 0, 655410, 0, 0, 655411, 0, 0, 655412, 0, 0, 655413, 0, 0, 655414, 0, 0, 655415, 0, 0, 655416, 0, 0, 655417, 0, 0, 655418, 0, 0, 655419, 0, 0, 655420, 0, 0, 655421, 0, 0, 655422, 0, 0, 655423, 0, 0, 655424, 0, 0, 655425, 0, 0, 655426, 0, 0, 655427, 0, 0, 655428, 0, 0, 655429, 0, 0, 655430, 0, 0, 655431, 0, 0, 655432, 0, 0, 655433, 0, 0, 655434, 0, 0, 655435, 0, 0, 655436, 0, 0, 655437, 0, 0, 655438, 0, 0, 655439, 0, 0, 655440, 0, 0, 655441, 0, 0, 655442, 0, 0, 655443, 0, 0, 655444, 0, 0, 655445, 0, 0, 655446, 0, 0, 655447, 0, 0, 655448, 0, 0, 655449, 0, 0, 655450, 0, 0, 655451, 0, 0, 655452, 0, 0, 655453, 0, 0, 655454, 0, 0, 655455, 0, 0, 655456, 0, 0, 655457, 0, 0, 655458, 0, 0, 655459, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 720923, 0, 0, 720924, 0, 0, 720925, 0, 0, 720926, 0, 0, 720927, 0, 0, 720928, 0, 0, 720929, 0, 0, 720930, 0, 0, 720931, 0, 0, 720932, 0, 0, 720933, 0, 0, 720934, 0, 0, 720935, 0, 0, 720936, 0, 0, 720937, 0, 0, 720938, 0, 0, 720939, 0, 0, 720940, 0, 0, 720941, 0, 0, 720942, 0, 0, 720943, 0, 0, 720944, 0, 0, 720945, 0, 0, 720946, 0, 0, 720947, 0, 0, 720948, 0, 0, 720949, 0, 0, 720950, 0, 0, 720951, 0, 0, 720952, 0, 0, 720953, 0, 0, 720954, 0, 0, 720955, 0, 0, 720956, 0, 0, 720957, 0, 0, 720958, 0, 0, 720959, 0, 0, 720960, 0, 0, 720961, 0, 0, 720962, 0, 0, 720963, 0, 0, 720964, 0, 0, 720965, 0, 0, 720966, 0, 0, 720967, 0, 0, 720968, 0, 0, 720969, 0, 0, 720970, 0, 0, 720971, 0, 0, 720972, 0, 0, 720973, 0, 0, 720974, 0, 0, 720975, 0, 0, 720976, 0, 0, 720977, 0, 0, 720978, 0, 0, 720979, 0, 0, 720980, 0, 0, 720981, 0, 0, 720982, 0, 0, 720983, 0, 0, 720984, 0, 0, 720985, 0, 0, 720986, 0, 0, 720987, 0, 0, 720988, 0, 0, 720989, 0, 0, 720990, 0, 0, 720991, 0, 0, 720992, 0, 0, 720993, 0, 0, 720994, 0, 0, 720995, 0, 0 )
+
+[node name="RespawnPosition" type="Position2D" parent="."]
+position = Vector2( 25, 325 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25, 325 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Sadis" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 330, 420 )
+
+[node name="Sadis45" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3090, 415 )
+
+[node name="Sadis23" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1710, 415 )
+
+[node name="Sadis43" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4470, 410 )
+
+[node name="Sadis11" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1020, 420 )
+
+[node name="Sadis32" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3780, 415 )
+
+[node name="Sadis18" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2400, 415 )
+
+[node name="Sadis6" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 675, 420 )
+
+[node name="Sadis25" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3435, 415 )
+
+[node name="Sadis13" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2055, 415 )
+
+[node name="Sadis7" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1365, 420 )
+
+[node name="Sadis27" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4125, 415 )
+
+[node name="Sadis14" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2745, 415 )
+
+[node name="Sadis2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 445, 420 )
+
+[node name="Sadis30" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3205, 415 )
+
+[node name="Sadis16" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1825, 415 )
+
+[node name="Sadis35" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4585, 410 )
+
+[node name="Sadis8" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1135, 420 )
+
+[node name="Sadis41" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3895, 415 )
+
+[node name="Sadis21" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2515, 415 )
+
+[node name="Sadis4" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 790, 420 )
+
+[node name="Sadis48" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3550, 415 )
+
+[node name="Sadis24" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2170, 415 )
+
+[node name="Sadis12" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1480, 420 )
+
+[node name="Sadis40" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4240, 415 )
+
+[node name="Sadis20" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2860, 415 )
+
+[node name="Sadis3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 560, 420 )
+
+[node name="Sadis44" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3320, 415 )
+
+[node name="Sadis22" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1940, 415 )
+
+[node name="Sadis39" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4700, 410 )
+
+[node name="Sadis42" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4815, 410 )
+
+[node name="Sadis10" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1250, 420 )
+
+[node name="Sadis28" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4010, 415 )
+
+[node name="Sadis15" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2630, 415 )
+
+[node name="Sadis5" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 905, 420 )
+
+[node name="Sadis31" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 3665, 415 )
+
+[node name="Sadis17" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2285, 415 )
+
+[node name="Sadis9" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1595, 420 )
+
+[node name="Sadis36" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 4355, 415 )
+
+[node name="Sadis19" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2975, 415 )
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 625, 230 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 1075, 230 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2075, 125 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2225, 125 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2375, 125 )
+
+[node name="Coin11" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2525, 124.2 )
+
+[node name="Coin12" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2675, 124.2 )
+
+[node name="Coin13" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2825, 228.8 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 3075, 280 )
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 3475, 275 )
+
+[node name="Coin8" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 4025, 125 )
+
+[node name="Coin9" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 4120, 125 )
+
+[node name="Coin10" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 4720, 275 )
+
+[node name="Teleporter" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5090, 0 )
+scene = "Level 7"
+
+[node name="InvisibleWall" parent="." instance=ExtResource( 6 )]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/scripts/About.gd" type="Script" id=1]
+[ext_resource path="res://src/assets/Background/Background.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/Font/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/assets/Gui/5.png" type="Texture" id=4]
+[ext_resource path="res://src/assets/Sound/text.wav" type="AudioStream" id=5]
+
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="About" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 880.0
+margin_bottom = 435.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0.0313726, 0.709804, 1 )
+text = "Game ini dibuat oleh Annas dengan Godot Game Engine 
+
+Gambar/Texture yang dipakai adalah \"Free
+Platform Game Assets\" karena aku gak bisa gambar :v
+
+Suara/Audio dan Musik yang dipakai dibuat oleh Annas dengan Bfxr, Audacity, dan Lmms
+
+"
+
+[node name="Back" type="TextureButton" parent="."]
+modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
+margin_left = 100.0
+margin_top = 416.468
+margin_right = 229.0
+margin_bottom = 545.468
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+
+[node name="text_timer" type="Timer" parent="."]
+wait_time = 0.1
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="timeout" from="text_timer" to="." method="_on_text_timer_timeout"]

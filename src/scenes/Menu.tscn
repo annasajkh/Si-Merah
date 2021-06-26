@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/ParallaxBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/assets/Font/Roboto-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://src/assets/Music/Menu.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.454902, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 4 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 500, 300 )
+current = true
+
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = -295.0
+margin_top = -255.0
+margin_right = 293.0
+margin_bottom = -78.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.945098, 0.870588, 0.870588, 1 )
+custom_colors/font_color_shadow = Color( 0.701961, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "Si Merah"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Camera2D"]
+margin_left = -125.0
+margin_top = -50.0
+margin_right = 125.0
+margin_bottom = 20.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="Button" parent="Camera2D"]
+margin_left = -125.0
+margin_top = 30.0
+margin_right = 125.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "About"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="Camera2D"]
+margin_left = -125.0
+margin_top = 110.0
+margin_right = 125.0
+margin_bottom = 180.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Reset"
+
+[node name="Quit" type="Button" parent="Camera2D"]
+margin_left = -125.0
+margin_top = 190.0
+margin_right = 125.0
+margin_bottom = 260.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Quit"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Camera2D"]
+margin_left = -220.0
+margin_top = -100.0
+margin_right = 250.0
+margin_bottom = 120.0
+window_title = "Reset Game"
+dialog_text = "Apakah kamu ingin menghapus semua data game ?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -15.0
+autoplay = true
+[connection signal="pressed" from="Camera2D/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Camera2D/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="Camera2D/Reset" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="Camera2D/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="confirmed" from="Camera2D/ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]

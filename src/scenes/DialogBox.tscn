@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/scripts/DialogBox.gd" type="Script" id=1]
+[ext_resource path="res://src/assets/Font/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/assets/Sound/text.wav" type="AudioStream" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 17
+font_data = ExtResource( 2 )
+
+[node name="Panel" type="Panel"]
+show_behind_parent = true
+margin_left = -105.0
+margin_top = -65.0
+margin_right = 105.0
+margin_bottom = 75.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="Panel" parent="."]
+show_behind_parent = true
+margin_left = 5.0
+margin_top = 20.0
+margin_right = 41.0
+margin_bottom = 56.0
+rect_rotation = 45.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 200.0
+margin_bottom = 130.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialog_time" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="dialog" type="Timer" parent="."]
+wait_time = 5.5
+autostart = true
+
+[node name="text_timer" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="text" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+[connection signal="timeout" from="dialog_time" to="." method="_on_dialog_time_timeout"]
+[connection signal="timeout" from="dialog" to="." method="_on_dialog_timeout"]
+[connection signal="timeout" from="text_timer" to="." method="_on_text_timer_timeout"]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/scripts/Boss.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/Buk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/Senso.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/assets/Tiles/tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/scenes/Annas.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/scenes/DialogBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/assets/Music/End.wav" type="AudioStream" id=8]
+[ext_resource path="res://src/scenes/InvisibleWall.tscn" type="PackedScene" id=9]
+
+[node name="Level 8" type="Node"]
+script = ExtResource( 1 )
+buk = ExtResource( 2 )
+senso = ExtResource( 3 )
+
+[node name="block" type="TileMap" parent="."]
+scale = Vector2( 0.1, 0.1 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 500, 500 )
+format = 1
+tile_data = PoolIntArray( 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 24, 430 )
+
+[node name="RespawnPosition" type="Position2D" parent="."]
+position = Vector2( 24, 430 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 500, 300 )
+current = true
+
+[node name="root" parent="." instance=ExtResource( 6 )]
+position = Vector2( 500, 193.861 )
+
+[node name="Panel" parent="root" instance=ExtResource( 7 )]
+margin_left = 50.0
+margin_top = -50.0
+margin_right = 260.0
+margin_bottom = 90.0
+
+[node name="spawn" type="Timer" parent="."]
+wait_time = 0.45
+
+[node name="time" type="Timer" parent="."]
+wait_time = 87.0
+one_shot = true
+
+[node name="end" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="close" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="change sky color" type="Timer" parent="."]
+wait_time = 93.5
+one_shot = true
+autostart = true
+
+[node name="music" type="Timer" parent="."]
+wait_time = 205.0
+one_shot = true
+autostart = true
+
+[node name="change ground color" type="Timer" parent="."]
+wait_time = 115.6
+one_shot = true
+autostart = true
+
+[node name="blink" type="Timer" parent="."]
+wait_time = 0.23
+
+[node name="blink2" type="Timer" parent="."]
+wait_time = 0.27
+
+[node name="blink_time" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="EndMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="InvisibleWall" parent="." instance=ExtResource( 9 )]
+
+[node name="InvisibleWall2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1043.5, 300 )
+
+[node name="Enemies" type="Node2D" parent="."]
+[connection signal="final_att" from="root/Panel" to="." method="_on_Panel_final_att"]
+[connection signal="finish" from="root/Panel" to="." method="_on_Panel_finish"]
+[connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]
+[connection signal="timeout" from="end" to="." method="_on_end_timeout"]
+[connection signal="timeout" from="close" to="." method="_on_close_timeout"]
+[connection signal="timeout" from="change sky color" to="." method="_on_night_timeout"]
+[connection signal="timeout" from="music" to="root/Panel" method="_on_music_timeout"]
+[connection signal="timeout" from="change ground color" to="." method="_on_change_ground_color_timeout"]
+[connection signal="timeout" from="blink" to="." method="_on_blink_timeout"]
+[connection signal="timeout" from="blink2" to="." method="_on_blink2_timeout"]
+[connection signal="timeout" from="blink_time" to="." method="_on_blink_time_timeout"]

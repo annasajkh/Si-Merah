@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/scripts/Annas.gd" type="Script" id=1]
+[ext_resource path="res://src/assets/Annas/annas.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/Font/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/assets/Annas/particle.png" type="Texture" id=4]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.0375587, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=1]
+min_value = -1.0
+_data = [ Vector2( 0.0062893, 0.0227274 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 3 )
+
+[node name="root" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Annas" type="Sprite" parent="."]
+scale = Vector2( 0.04, 0.05 )
+texture = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Annas"]
+show_behind_parent = true
+emitting = false
+amount = 50
+lifetime = 3.0
+local_coords = false
+texture = ExtResource( 4 )
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+angular_velocity_random = 1.0
+scale_amount_curve = SubResource( 3 )
+color = Color( 0, 0.0392157, 1, 1 )
+hue_variation = 1.0
+hue_variation_curve = SubResource( 1 )
+
+[node name="change_color" type="Timer" parent="Annas"]
+wait_time = 0.2
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = -18.5877
+margin_top = -37.064
+margin_right = 171.412
+margin_bottom = 57.936
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "?????"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Annas/change_color" to="." method="_on_change_color_timeout"]
